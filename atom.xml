@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://asly.cf</id>
     <title>Asly&apos;s Blog</title>
-    <updated>2021-02-16T07:03:55.070Z</updated>
+    <updated>2021-02-16T07:06:55.392Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://asly.cf"/>
     <link rel="self" href="https://asly.cf/atom.xml"/>
@@ -10,4 +10,14 @@
     <logo>https://asly.cf/images/avatar.png</logo>
     <icon>https://asly.cf/favicon.ico</icon>
     <rights>All rights reserved 2021, Asly&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[关于网站迁移]]></title>
+        <id>https://asly.cf/post/guan-yu-wang-zhan-qian-yi/</id>
+        <link href="https://asly.cf/post/guan-yu-wang-zhan-qian-yi/">
+        </link>
+        <updated>2021-02-16T07:04:40.000Z</updated>
+        <content type="html"><![CDATA[<p>本站已经迁移至新站，点下面的链接快速前往</p>
+<p><a href="asly.jingzhidh.com">新站</a></p>
+]]></content>
+    </entry>
 </feed>
