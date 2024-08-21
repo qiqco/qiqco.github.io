@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>免修改SLE在Big Sur驱动AR网卡 | Asly部落阁</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qiqco.github.io/favicon.ico?v=1724227847981">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qiqco.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qiqco.github.io">
+        <img class="avatar" src="https://qiqco.github.io/images/avatar.png?v=1724227847981" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qiqco.github.io">
+        <h1 class="site-title">Asly部落阁</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">免修改SLE在Big Sur驱动AR网卡</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-07-07</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>本教程讲的是，如何不修改SLE来驱动AR网卡</p>
+<h1 id="注意目前只支持big-sur及其以下版本不支持monterey"><strong>注意：目前只支持Big Sur及其以下版本，不支持Monterey</strong></h1>
+<p>本教程只建议Big Sur使用，Catalina建议使用博客另一个教程方法</p>
+<h2 id="支持列表目前已知">支持列表（目前已知）：</h2>
+<ul>
+<li>AR9485</li>
+<li>AR9565</li>
+<li>AR9285</li>
+<li>AR9462</li>
+<li>AR9463</li>
+</ul>
+<h2 id="视频教程">视频教程：</h2>
+<p><a href="https://www.bilibili.com/video/BV1iN411X7Mv"><em><strong>哔哩哔哩</strong></em></a></p>
+<h2 id="教程开始">教程开始：</h2>
+<h3 id="1下载我分享的文件文末提供">1.下载我分享的文件（文末提供）</h3>
+<p>下载完后解压到桌面</p>
+<h3 id="2打开efi">2.打开EFI</h3>
+<p>进入到EFI中，将我分享的两个驱动</p>
+<p>AirPortAtheros40.kext和HS80211Family.kext拖动到EFI的kext目录里面，如下图</p>
+<figure data-type="image" tabindex="1"><img src="https://qiqco.github.io/post-images/1724227812429.png" alt="" loading="lazy"></figure>
+<h3 id="3打开config">3.打开config</h3>
+<p>使用OpenCore Configurator打开config，并且加载它们两个，如下图（<em><strong>注意加载顺序，加载顺序不对无法驱动</strong></em>）</p>
+<p><strong>HS80211Family.kext在AirPortAtheros40.kext的前面（如下图！！！）</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://qiqco.github.io/post-images/1724227462256.png" alt="" loading="lazy"></figure>
+<p>修改config→Misc→Security→SecureBootModel为disabled（你可以选择不修改，但是我并没有测试过）</p>
+<figure data-type="image" tabindex="3"><img src="https://qiqco.github.io/post-images/1724227468056.png" alt="" loading="lazy"></figure>
+<p><strong>注意：Clover加载需要加WifiLocFix.kext驱动，OC部分需要，如果你OC如果无法驱动，就加入此驱动</strong></p>
+<h3 id="4重启">4.重启</h3>
+<h2 id="qq交流群953726755">QQ交流群：953726755</h2>
+<p><a href="https://qm.qq.com/cgi-bin/qm/qr?k=DZ_Ap0pq1sfWGH6IgkZYGDGfAkJtU5A2&authKey=sgUYue4i//Z5Zd1u3F9J1WJahCY2t3twjJJdW0k0Ti0fPataVoy/m9qA4kz3qpYW&noverify=0">快捷门</a></p>
+<h2 id="文件分享">文件分享：</h2>
+<p><a href="https://wwi.lanzoui.com/irOiClvahpe">AR9485</a></p>
+<p><a href="https://wwi.lanzoui.com/iATkLlvqhqb">AR9565</a></p>
+<p><a href="https://wwi.lanzoui.com/i3rpylvqhoj">AR9285</a></p>
+<p><a href="https://wwi.lanzoui.com/itWWTnukyuh">AR9462</a></p>
+<p><a href="https://wwi.lanzoui.com/i2kBSnukysf">AR9463</a></p>
+<p><a href="https://wwi.lanzoui.com/i57Aolvagyh">HS80211Family</a></p>
+<p><a href="https://wwi.lanzoui.com/irtTenbz5cb">WifiLocFix</a></p>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/qiqco" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://qiqco.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
